@@ -29,7 +29,7 @@ USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 BOT_START_TIME = time()
 
 # Bot images & videos
-PICS = (environ.get('PICS', 'https://graph.org/file/0216c3729fa865da49914.jpg')).split()
+PICS = (environ.get('PICS', 'https://graph.org/file/718609860cbf78492f2db.jpg')).split()
 NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/0593a3103ba1b9a5855bf.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://graph.org/file/7e88c2850213704586259.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/2a888a370f479f4338f7c.jpg")
@@ -49,7 +49,7 @@ SUPPORT_CHAT_RT = -1001792675255
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://rithesh:rithesh@cluster0.d6qal.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "PIRO")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'FILES')
 
