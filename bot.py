@@ -14,6 +14,7 @@ from database.users_chats_db import db
 from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL ,SUPPORT_CHAT_RT
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
+from database.users_chats_db import db
 from pyrogram import types
 from Script import script 
 from datetime import date, datetime 
@@ -52,6 +53,12 @@ class Bot(Client):
         time = now.strftime("%H:%M:%S %p")
         await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
         await self.send_message(chat_id=SUPPORT_CHAT_RT, text=script.RESTART_GC_TXT.format(today, time))
+        chats = await db.get_all_chats()
+        async for chat in chats:
+            try:
+                await self.send_message(chat_id=chat['id'], text="Bot Restarted! 🤖")
+            except:
+                pass
 
     async def stop(self, *args):
         await super().stop()
