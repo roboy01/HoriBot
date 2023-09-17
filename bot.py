@@ -11,7 +11,7 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL ,SUPPORT_CHAT_RT
+from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL 
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from database.users_chats_db import db
@@ -52,7 +52,6 @@ class Bot(Client):
         now = datetime.now(tz)
         time = now.strftime("%H:%M:%S %p")
         await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
-        await self.send_message(chat_id=SUPPORT_CHAT_RT, text=script.RESTART_GC_TXT.format(today, time))
         chats = await db.get_all_chats()
         async for chat in chats:
             try:
