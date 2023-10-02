@@ -971,25 +971,40 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
     await query.answer('𝖯𝗂𝗋𝖺𝖼𝗒 𝗂𝗌 𝖢𝗋𝗂𝗆𝖾 !')
+
+@Client.on_callback_query(filters.create(lambda _, __, query: query.data.startswith("pmspolling")))
+async def pm_spoll_tester(bot, query):
+    _, user, movie_ = query.data.split('#')
+    if movie_ == "close_spellcheck":
+        return await query.message.delete()
+    movies = temp.PM_SPELL.get(str(query.message.reply_to_message.id))
+    if not movies:
+        return await query.answer("𝖸𝗈𝗎 𝖠𝗋𝖾 𝖴𝗌𝗂𝗇𝗀 𝖮𝗅𝖽 𝖬𝖾𝗌𝗌𝖺𝗀𝖾, 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖠𝗀𝖺𝗂𝗇 !", show_alert=True)
+    movie = movies[(int(movie_))]
+    await query.answer('𝖢𝗁𝖾𝖼𝗄𝗂𝗇𝗀 𝖨𝗇 𝖬𝗒 𝖣𝖺𝗍𝖺𝖻𝖺𝗌𝖾...')
+    files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
+    if files:
+        k = (movie, files, offset, total_results)
+        await pm_AutoFilter(bot, query, k)
+    else:
+        k = await query.message.edit('𝖭𝗈 𝖱𝖾𝗌𝗎𝗅𝗍 𝖥𝗈𝗎𝗇𝖽 !')
+        await asyncio.sleep(10)
+        await k.delete()
     
 async def auto_filter(client, msg, spoll=False):
-    reqstr1 = msg.from_user.id if msg.from_user else 0
-    reqstr = await client.get_users(reqstr1)
     if not spoll:
         message = msg
         settings = await get_settings(message.chat.id)
         if message.text.startswith("/"): return  # ignore commands
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
-        if len(message.text) < 100:
+        if 2 < len(message.text) < 100:
             search = message.text
             files, offset, total_results = await get_search_results(message.chat.id ,search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
-                    return await advantage_spell_chok(client, msg)
+                    return await advantage_spell_chok(msg)
                 else:
-                    if NO_RESULTS_MSG:
-                        await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, search)))
                     return
         else:
             return
@@ -1274,7 +1289,7 @@ async def advantage_spell_chok(client, msg):
             if settings['auto_delete']:
                 await asyncio.sleep(600)
                 await spell_check_del.delete()
-
+                
 async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
