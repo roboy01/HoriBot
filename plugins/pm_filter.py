@@ -781,10 +781,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-                    InlineKeyboardButton('➕ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ➕', url=f"http://t.me/{temp.U_NAME}?startgroup=true")
+                    InlineKeyboardButton('𝖡𝖫𝖠𝖲𝖳𝖤𝖱 𝖫𝖨𝖭𝖪𝖹 😎', url=f"https://t.me/blaster_linkz")
                 ],[
                     InlineKeyboardButton('ℹ️ 𝖧𝖾𝗅𝗉', callback_data='help'),
-                    InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about'),
+                    InlineKeyboardButton('😊 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
                 ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1003,7 +1003,7 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(message.chat.id ,search.lower(), offset=0, filter=True)
             if not files:
                 if settings["spell_check"]:
-                    return await advantage_spell_chok(msg)
+                    return await advantage_spell_chok(client, msg)
                 else:
                     return
         else:
