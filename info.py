@@ -31,8 +31,8 @@ BOT_START_TIME = time()
 # Bot images & videos
 PICS = (environ.get('PICS', 'https://graph.org/file/6eeee3024f431d6a20788.jpg')).split()
 NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/0593a3103ba1b9a5855bf.jpg")
-MELCOW_VID = environ.get("MELCOW_VID", "https://graph.org/file/7e88c2850213704586259.mp4")
-SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/2a888a370f479f4338f7c.jpg")
+MELCOW_VID = environ.get("MELCOW_VID", "https://graph.org/file/dcb4c58474f91f1a30f48.mp4")
+SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/d27d9c9905c6e5f113c29.png")
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '761686219 5004415492 1875429051 5705117542').split()]
