@@ -95,7 +95,8 @@ async def next_page(bot, query):
 
     text = ""
     for file in files:
-        text += f"📁[{get_size(file.file_size)}]-{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}"    
+        text += f"📁[[{get_size(file.file_size)}]-{file.file_name}](http://t.me/{temp.U_NAME}?start=PIRO_{file.file_id})\n\n"
+        
     # if settings['button']:
     #     btn = [
     #         [
@@ -244,7 +245,7 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝖭𝖤𝖷𝖳 ▶️", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-    btn.insert(2, [
+    btn.insert(1, [
         InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_all#{req}#{key}#{pre}")
     ])
     
@@ -254,7 +255,8 @@ async def next_page(bot, query):
     try:
         await query.message.edit(
             text,
-            reply_markup=InlineKeyboardMarkup(btn)
+            reply_markup=InlineKeyboardMarkup(btn),
+            disable_web_page_preview=True
         )
         await query.answer()
     except MessageNotModified:
@@ -1012,7 +1014,8 @@ async def auto_filter(client, msg, spoll=False):
 
     text = ""
     for file in files:
-        text += f"📁[{get_size(file.file_size)}]-{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}"
+        text += f"📁[[{get_size(file.file_size)}]-{file.file_name}](http://t.me/{temp.U_NAME}?start=PIRO_{file.file_id})\n\n"
+
     # if settings["button"]:
     #     btn = [
     #         [
@@ -1072,7 +1075,7 @@ async def auto_filter(client, msg, spoll=False):
                 InlineKeyboardButton(f'😇 Info', 'tips'),
                 InlineKeyboardButton(f'📝 𝖳𝗂𝗉𝗌', 'info')
             ])
-    btn.insert(2, [
+    btn.insert(1, [
         InlineKeyboardButton("📤 𝖲𝖾𝗇𝖽 𝖠𝗅𝗅 𝖥𝗂𝗅𝖾𝗌 📤", callback_data=f"send_all#{req}#{key}#{pre}")
     ])
     
