@@ -38,13 +38,13 @@ async def stats(bot, update):
     chats = await db.total_chat_count()
     currentTime = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - BOT_START_TIME))
     total, used, free = shutil.disk_usage(".")
-    total = humanbytes(total)
-    used = humanbytes(used)
-    free = humanbytes(free)
     cpu_usage = psutil.cpu_percent()
     ram_usage = psutil.virtual_memory().percent
     disk_usage = psutil.disk_usage('/').percent
-
+    total = humanbytes(total)
+    used = humanbytes(used)
+    free = humanbytes(free)
+    
     ms_g = f"""<b>⚙️ 𝖡𝗈𝗍 𝖲𝗍𝖺𝗍𝗎𝗌</b>
 🗂 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌: <code>{}</code>
 👤 𝖳𝗈𝗍𝖺𝗅 𝖴𝗌𝖾𝗋𝗌: <code>{}</code>
