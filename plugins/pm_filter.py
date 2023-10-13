@@ -96,6 +96,7 @@ async def next_page(bot, query):
     text = ""
     for file in files:
         text += f'<b>\n\n <a href="https://t.me/{temp.U_NAME}?start=file_{file.file_id}">🗂[{get_size(file.file_size)}]-{file.file_name}</a></b>'
+        parse_mode=enums.ParseMode.HTML
         
     # if settings['button']:
     #     btn = [
@@ -1015,6 +1016,7 @@ async def auto_filter(client, msg, spoll=False):
     text = ""
     for file in files:
         text += f'<b>\n\n <a href="https://t.me/{temp.U_NAME}?start=file_{file.file_id}">🗂[{get_size(file.file_size)}]-{file.file_name}</a></b>'
+        parse_mode=enums.ParseMode.HTML
 
     # if settings["button"]:
     #     btn = [
