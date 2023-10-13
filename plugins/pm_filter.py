@@ -95,7 +95,7 @@ async def next_page(bot, query):
 
     text = ""
     for file in files:
-        text += f"""<b>\n\n‼️ <a href=https://t.me/{temp.U_NAME}?start=file_{query.message.chat.id}_{file.file_id}>🗂[{get_size(file.file_size)}]-{file.file_name}</a></b>"""
+        text += f"""<b>\n\n‼️ <a href=https://t.me/{temp.U_NAME}?start=file_{msg.chat.id}_{file.file_id}>🗂[{get_size(file.file_size)}]-{file.file_name}</a></b>"""
         
     # if settings['button']:
     #     btn = [
