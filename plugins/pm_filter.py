@@ -61,11 +61,14 @@ async def give_filter(client, message):
         else:
             return await message.reply_text(f"<b>👋 𝖧𝖾𝗒 {message.from_user.mention} \n📁 {str(total_results)} 𝖱𝖾𝗌𝗎𝗅𝗍𝗌 𝖺𝗋𝖾 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒 {search}.\n\nKindly ask movies and series here ⬇\n@blaster_arena & @blaster_movies</b>")
 
-@Client.on_message(filters.private & filters.text & filters.incoming)
-async def pv_filter(client, message):
-    kd = await global_filters(client, message)
-    if kd == False:
-        await auto_filter(client, message)
+@Client.on_message(filters.private & filters.text)
+async def pm_search(client, message):
+    files, n_offset, total = await get_search_results(message.text, filter=True)
+    if int(total) != 0:
+        btn = [[
+            InlineKeyboardButton("🎊 𝖦𝖾𝗍 𝖧𝖾𝗋𝖾 🎊", url='https://t.me/blaster_linkz/11')
+        ]]
+        await message.reply_text(f'Total {total} results found in this group', reply_markup=InlineKeyboardMarkup(btn))
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
