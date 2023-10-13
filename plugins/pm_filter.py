@@ -63,7 +63,7 @@ async def give_filter(client, message):
 
 @Client.on_message(filters.private & filters.text)
 async def pm_search(client, message):
-    files, n_offset, total = await get_search_results(message.text, filter=True)
+    files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=offset, filter=True)
     if int(total) != 0:
         btn = [[
             InlineKeyboardButton("🎊 𝖦𝖾𝗍 𝖧𝖾𝗋𝖾 🎊", url='https://t.me/blaster_linkz/11')
