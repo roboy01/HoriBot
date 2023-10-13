@@ -29,12 +29,10 @@ More Help Check Help Button Below
 
 ~ Source: https://github.com/ritheshrkrm/PiroAutoFilterBot""" #please don't change repo link give credit :)
 
-    STATUS_TXT = """🗂 Total Files: <code>{}</code>
-👤 Total Users: <code>{}</code>
-👥 Total Chats: <code>{}</code>
-✨ Used Storage: <code>{}</code>
-⚡️ Free Storage: <code>{}</code>
-🚀 Uptime: <code>{}</code>
+    STATUS_TXT = """📁 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌: <code>{}</code>
+👨🏻‍🔧 𝖳𝗈𝗍𝖺𝗅 𝖬𝖾𝗆𝖻𝖾𝗋𝗌: <code>{}</code>
+💬 𝖳𝗈𝗍𝖺𝗅 𝖢𝗁𝖺𝗍𝗌: <code>{}</code>
+📝 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>
 
 <b>😎 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 @piroxbots</b>"""
 
