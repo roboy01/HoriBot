@@ -95,7 +95,7 @@ async def next_page(bot, query):
 
     text = ""
     for file in files:
-        text += f"📁<a href='http://t.me/{temp.U_NAME}?start=PIRO_{file.file_id}'>[{get_size(file.file_size)}]-{file.file_name}</a>\n\n"
+        text += f"""<b>\n\n‼️ <a href=https://t.me/{temp.U_NAME}?start=file_{query.message.chat.id}_{file.file_id}>🗂[{get_size(file.file_size)}]-{file.file_name}</a></b>"""
         
     # if settings['button']:
     #     btn = [
@@ -1014,7 +1014,7 @@ async def auto_filter(client, msg, spoll=False):
 
     text = ""
     for file in files:
-        text += f"📁<a href='http://t.me/{temp.U_NAME}?start=PIRO_{file.file_id}'>[{get_size(file.file_size)}]-{file.file_name}</a>\n\n"
+        text += f"""<b>\n\n‼️ <a href=https://t.me/{temp.U_NAME}?start=file_{query.message.chat.id}_{file.file_id}>🗂[{get_size(file.file_size)}]-{file.file_name}</a></b>"""
 
     # if settings["button"]:
     #     btn = [

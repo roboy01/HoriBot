@@ -1,17 +1,20 @@
 class script(object):
     START_TXT = """<b>𝖸𝗈 {}, 𝖭𝗂𝖼𝖾 𝖳𝗈 𝖬𝖾𝖾𝗍 𝖸𝗈𝗎</b>
-<i>𝖨'𝗆 𝖩𝗎𝗌𝗍 𝖲𝗂𝗆𝗉𝗅𝖾 𝖯𝗋𝖾-𝖥𝗎𝗇𝖼𝗍𝗂𝗈𝗇𝖾𝖽 𝖠𝗎𝗍𝗈 𝖥𝗂𝗅𝗍𝖾𝗋 𝖡𝗈𝗍</i>
+I'm Powerful Auto-Filter Bot You Can Use Me As A Auto-filter in Your Group .... 
 
-<u>𝖨𝗍 𝖨𝗌 𝖤𝖺𝗌𝗒 𝖳𝗈 𝖴𝗌𝖾 𝖬𝖾; 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 𝖠𝗌 𝖠𝖽𝗆𝗂𝗇</u>
+Its Easy To Use Me Just Add Me To Your Group As Admin Thats All i will Provide Movies There.
+
+More Help Check Help Button Below
 """
 
-    HELP_TXT = """🙋🏻‍♂️   𝖧𝖾𝗅𝗅𝗈𝗈𝗈  {} 🤓
+    HELP_TXT = """<b>How To Use Me?</b>
+    
+○ Search Using Inline Mode
+    This Methord Works On Any Chat, Just Type @piroxfilesrobot And Then Leave A Space And Search Any Movie You Want.
+    
+○ Or Just Send Correct Movie Name Without Spelling Mistakes I Will Send Movies To You.
 
-○ 𝖨𝖿 𝖸𝗈𝗎 𝖣𝗈𝗇'𝗍 𝖪𝗇𝗈𝗐 𝖧𝗈𝗐 𝖳𝗈 𝖴𝗌𝖾 𝖬𝖾,
-
-<a href='https://t.me/piro_tuts'>𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾 𝖳𝗈 𝖪𝗇𝗈𝗐 𝖧𝗈𝗐 𝖳𝗈 𝖦𝖾𝗍 𝖬𝗈𝗏𝗂𝖾𝗌 & 𝖲𝖾𝗋𝗂𝖾𝗌 !</a>
-
-😎 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 @piroxbots"""
+<a href='https://t.me/piro_tuts/13'>Watch Using Tutorial..</a>"""
 
     ABOUT_TXT = """<b>○ 𝖬𝗒 𝖭𝖺𝗆𝖾: {}
 ○ 𝖢𝗋𝖾𝖺𝗍𝗈𝗋 : <a href='https://t.me/piroxbots'>𝖳𝗁𝗂𝗌 𝖯𝖾𝗋𝗌𝗈𝗇</a>
@@ -26,12 +29,15 @@ class script(object):
 
 ~ Source: https://github.com/ritheshrkrm/PiroAutoFilterBot""" #please don't change repo link give credit :)
 
-    STATUS_TXT = """📁 𝖳𝗈𝗍𝖺𝗅 𝖥𝗂𝗅𝖾𝗌: <code>{}</code>
-👨🏻‍🔧 𝖳𝗈𝗍𝖺𝗅 𝖬𝖾𝗆𝖻𝖾𝗋𝗌: <code>{}</code>
-💬 𝖳𝗈𝗍𝖺𝗅 𝖢𝗁𝖺𝗍𝗌: <code>{}</code>
-📝 𝖴𝗌𝖾𝖽 𝖲𝗍𝗈𝗋𝖺𝗀𝖾: <code>{}</code>
+    STATUS_TXT = """🗂 Total Files: <code>{}</code>
+👤 Total Users: <code>{}</code>
+👥 Total Chats: <code>{}</code>
+✨ Used Storage: <code>{}</code>
+⚡️ Free Storage: <code>{}</code>
+🚀 Uptime: <code>{}</code>
 
 <b>😎 𝖯𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 @piroxbots</b>"""
+
 
     LOG_TEXT_G = """#NewGroup
 𝖦𝗋𝗈𝗎𝗉 = {}(<code>{}</code>)
@@ -50,9 +56,9 @@ Request Yourself Please...!!!"""
 You Are Using One Of Old Message, 
 Request Again...!!!"""
 
-    CUDNT_FND = """<b><i>
+    CUDNT_FND = """<b>
 𝖨 𝖼𝗈𝗎𝗅𝖽𝗇'𝗍 𝖿𝗂𝗇𝖽 𝖺𝗇𝗒𝗍𝗁𝗂𝗇𝗀 𝗋𝖾𝗅𝖺𝗍𝖾𝖽 𝗍𝗈 𝗍𝗁𝖺𝗍
-𝖣𝗂𝖽 𝗒𝗈𝗎 𝗆𝖾𝖺𝗇 𝖺𝗇𝗒 𝗈𝗇𝖾 𝗈𝖿 𝗍𝗁𝖾𝗌𝖾?</i></b>"""
+𝖣𝗂𝖽 𝗒𝗈𝗎 𝗆𝖾𝖺𝗇 𝖺𝗇𝗒 𝗈𝗇𝖾 𝗈𝖿 𝗍𝗁𝖾𝗌𝖾?</b>"""
 
     I_CUDNT = """❌ <b>𝖨 𝖼𝗈𝗎𝗅𝖽𝗇'𝗍 𝖿𝗂𝗇𝖽 𝖺𝗇𝗒𝗍𝗁𝗂𝗇𝗀 𝗋𝖾𝗅𝖺𝗍𝖾𝖽 𝗍𝗈 𝗍𝗁𝖺𝗍</b>\n\n‼ <b><i>𝖱𝖾𝗉𝗈𝗋𝗍 𝗍𝗈 𝖺𝖽𝗆𝗂𝗇 ▶ @raixchat</i></b>"""
 

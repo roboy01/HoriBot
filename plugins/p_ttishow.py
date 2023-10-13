@@ -40,7 +40,7 @@ async def save_group(bot, message):
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact 𝖲𝖴𝖯𝖯𝖮𝖱𝖳 GROUP.</b>",
+            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
@@ -67,10 +67,6 @@ async def save_group(bot, message):
             await asyncio.sleep(300)
             await (temp.MELCOW['welcome']).delete()
                 
-               
-
-
-
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
@@ -134,7 +130,6 @@ async def disable_chat(bot, message):
     except Exception as e:
         await message.reply(f"Error - {e}")
 
-
 @Client.on_message(filters.command('enable') & filters.user(ADMINS))
 async def re_enable_chat(bot, message):
     if len(message.command) == 1:
@@ -153,18 +148,18 @@ async def re_enable_chat(bot, message):
     temp.BANNED_CHATS.remove(int(chat_))
     await message.reply("Chat Successfully re-enabled")
 
-
-@Client.on_message(filters.command('stats') & filters.incoming)
-async def get_ststs(bot, message):
-    rju = await message.reply('Fetching stats...')
-    total_users = await db.total_users_count()
-    totl_chats = await db.total_chat_count()
+@Client.on_message(filters.command('stats') & filters.user(ADMINS))
+async def stats(bot, message):
+    msg = await message.reply('Please Wait...')
     files = await Media.count_documents()
+    users = await db.total_users_count()
+    chats = await db.total_chat_count()
     size = await db.get_db_size()
     free = 536870912 - size
+    uptime = get_readable_time(time.time() - temp.START_TIME)
     size = get_size(size)
     free = get_size(free)
-    await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
+    await msg.edit(script.STATUS_TXT.format(files, users, chats, size, free, uptime))
 
 @Client.on_message(filters.command('invite') & filters.user(ADMINS))
 async def gen_invite(bot, message):
